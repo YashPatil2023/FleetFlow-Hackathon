@@ -1,85 +1,110 @@
-# FleetFlow 🚛
+# 🚛 FleetFlow — Modular Fleet & Logistics Management System
 
-**Modular Fleet & Logistics Management System**
-
-A comprehensive fleet management dashboard built for the Odoo Hackathon. Track vehicles, dispatch trips, manage maintenance, log expenses, monitor driver performance, and analyze operational data — all in one place.
+> A full-stack fleet and logistics management system built with **React**, **Node.js**, **Express**, and **SQLite**. Designed for real-time fleet tracking, trip dispatching, maintenance logging, and operational analytics — all with role-based access control.
 
 ---
 
-## ✨ Features
+## 📹 Demo Video
 
-### 1. 🔐 Authentication
-- User login and registration
-- Role-based access (Admin, Dispatcher, Driver)
-- Session persistence
-
-### 2. 📊 Main Dashboard
-- KPI cards: Active Fleet, Maintenance Alerts, Pending Cargo, Utilization Rate
-- Recent trips overview with filtering
-- Quick action buttons for new trips and vehicles
-
-### 3. 🚗 Vehicle Registry
-- Full CRUD for fleet vehicles
-- Track make, model, type, capacity, odometer, license plate
-- Status management (Ready / In Shop)
-- Filter by type and status
-
-### 4. 🗺️ Trip Dispatcher
-- Create and dispatch trips with route details
-- **Weight validation** — blocks overloaded vehicles 
-- **Driver eligibility checks** — expired licenses block assignment
-- 4-stage progress tracking: Dispatched → In Transit → Delivered → Completed
-
-### 5. 🔧 Maintenance & Service Logs
-- Log repairs and servicing per vehicle
-- **"In Shop" Rule** — auto-marks vehicle unavailable when serviced
-- Auto-restores "Ready" status when service is completed
-- Cost tracking per repair
-
-### 6. 💰 Expense & Fuel Logging
-- Track fuel costs and miscellaneous expenses per trip
-- Per-vehicle cost aggregation (fuel + maintenance + misc)
-- Total cost breakdown
-
-### 7. 👤 Driver Performance & Safety
-- Track license details with **expiry warnings**
-- Safety Score and Completion Rate with visual progress bars
-- Duty Status: In Duty / Taking a Break / Suspended
-- **Safety Lock** — expired licenses block new trip assignments
-
-### 8. 📈 Operational Analytics
-- Interactive charts (Chart.js): Fuel Trend, Top 5 Costliest Vehicles, Trip Distribution, Driver Radar
-- KPI cards: Total Fuel Cost, Fleet ROI, Utilization Rate
-- Monthly P&L summary table
-- Print/Download report support
+🎬 **YouTube Demo:** [_Video link will be added here_]
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Structure |
-| CSS3 | Dark theme, responsive design |
-| Vanilla JavaScript | SPA logic, routing |
-| localStorage | Data persistence |
-| Chart.js (CDN) | Analytics charts |
-| Google Fonts (Inter) | Typography |
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Frontend** | React 18 + Vite | Component-based UI with fast HMR |
+| **Backend** | Node.js + Express.js | RESTful API server |
+| **Database** | SQLite (better-sqlite3) | Lightweight, zero-config DB |
+| **Authentication** | JWT + bcrypt | Secure token-based auth with hashed passwords |
+| **Charts** | Chart.js + react-chartjs-2 | Interactive analytics visualizations |
+| **HTTP Client** | Axios | API communication with JWT interceptors |
+| **Routing** | React Router v6 | Client-side navigation with protected routes |
 
 ---
 
-## 🚀 Getting Started
+## ✨ Features
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/FleetFlow.git
-   ```
-2. Open `index.html` in your browser
-3. Login with default credentials:
-   - **Username:** `admin`
-   - **Password:** `admin`
+### 🔐 Authentication & Authorization
+- User **Registration** and **Login** with bcrypt-hashed passwords
+- **JWT token-based** session management (24h expiry)
+- **Role-based access control** — Admin, Dispatcher, Driver
+- Auto-logout on token expiry
 
-No build step or server required — it's a pure frontend SPA!
+### 📊 Role-Based Dashboards
+
+| Feature | Admin | Dispatcher | Driver |
+|---|---|---|---|
+| Dashboard KPIs | ✅ Full overview | ✅ Full overview | ✅ Own stats only |
+| Vehicle Registry | ✅ Full CRUD | ✅ View only | ❌ Hidden |
+| Trip Dispatcher | ✅ Full CRUD | ✅ Full CRUD | ✅ View own trips |
+| Maintenance Logs | ✅ Full CRUD | ✅ Create/View | ❌ Hidden |
+| Expenses & Fuel | ✅ Full CRUD | ✅ Create/View | ✅ View own |
+| Driver Performance | ✅ Full CRUD | ✅ View only | ✅ Own profile |
+| Analytics & Reports | ✅ Full access | ✅ Full access | ❌ Hidden |
+
+### 🚗 Core Modules
+1. **Dashboard** — KPI cards (Active Fleet, Maintenance Alerts, Pending Cargo, Utilization Rate) + Recent Trips table
+2. **Vehicle Registry** — Add, edit, delete vehicles with license plate, capacity, odometer tracking
+3. **Trip Dispatcher** — Dispatch trips with weight validation, 4-stage progress tracking (Dispatched → In Transit → Delivered → Completed)
+4. **Maintenance & Service Logs** — Log repairs with auto "In Shop" vehicle status
+5. **Expense & Fuel Logging** — Track fuel costs, misc expenses per trip
+6. **Driver Performance & Safety** — Safety scores, completion rates, license expiry warnings
+7. **Operational Analytics** — 4 interactive charts (Line, Bar, Doughnut, Radar) + Monthly P&L summary
+
+### 📜 Business Rules (Server-Enforced)
+- **Weight Validation** — API blocks trips where cargo weight exceeds vehicle capacity
+- **In Shop Rule** — Creating a maintenance log automatically sets vehicle status to "In Shop"
+- **Auto-Ready** — Marking maintenance as done restores vehicle to "Ready" (if no other active repairs)
+- **Safety Lock** — Drivers with expired licenses cannot be assigned to new trips
+- **Suspension Block** — Suspended drivers are blocked from trip assignment
+
+---
+
+## 🚀 How to Run This Project
+
+### Prerequisites
+- **Node.js** (v18 or higher) — [Download here](https://nodejs.org/)
+- **Git** — [Download here](https://git-scm.com/)
+
+### Step-by-Step Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YashPatil2023/FleetFlow-Hackathon.git
+cd FleetFlow-Hackathon
+
+# 2. Setup Backend
+cd server
+npm install
+npm run seed       # Creates SQLite database with demo data
+
+# 3. Setup Frontend (open a new terminal)
+cd client
+npm install
+
+# 4. Start Backend (Terminal 1)
+cd server
+npm start          # Runs on http://localhost:5000
+
+# 5. Start Frontend (Terminal 2)
+cd client
+npm run dev        # Runs on http://localhost:3000
+
+# 6. Open your browser
+# Go to http://localhost:3000
+```
+
+### Default Login Credentials
+
+| Role | Username | Password |
+|---|---|---|
+| **Admin** | admin | admin123 |
+| **Dispatcher** | dispatcher | dispatch123 |
+| **Driver** | rajesh | driver123 |
+
+> 💡 **Tip:** Try logging in with different roles to see how the dashboard and sidebar change!
 
 ---
 
@@ -87,43 +112,110 @@ No build step or server required — it's a pure frontend SPA!
 
 ```
 FleetFlow/
-├── index.html          # Main entry point
-├── css/
-│   └── styles.css      # Dark theme & design system
-├── js/
-│   ├── app.js          # Core: router, data store, utilities
-│   ├── auth.js         # Authentication
-│   ├── dashboard.js    # Dashboard with KPIs
-│   ├── vehicles.js     # Vehicle Registry CRUD
-│   ├── trips.js        # Trip Dispatcher
-│   ├── maintenance.js  # Maintenance Logs
-│   ├── expenses.js     # Expense Tracking
-│   ├── drivers.js      # Driver Performance
-│   └── analytics.js    # Charts & Reports
-├── .gitignore
-└── README.md
+│
+├── server/                        # 🖥️ Backend (Node.js + Express)
+│   ├── server.js                  # Express entry point
+│   ├── package.json               # Backend dependencies
+│   ├── middleware/
+│   │   └── auth.js                # JWT verification + role-based guards
+│   ├── routes/
+│   │   ├── auth.js                # POST /register, /login, GET /me
+│   │   ├── vehicles.js            # Vehicle CRUD (Admin only write)
+│   │   ├── trips.js               # Trip dispatch + weight validation
+│   │   ├── maintenance.js         # Service logs + In-Shop auto-rule
+│   │   ├── expenses.js            # Expense tracking
+│   │   ├── drivers.js             # Driver profiles + safety lock
+│   │   └── analytics.js           # Aggregated analytics data
+│   └── db/
+│       ├── schema.sql             # Database table definitions
+│       └── seed.js                # Demo data seeder
+│
+├── client/                        # ⚛️ Frontend (React + Vite)
+│   ├── index.html                 # HTML entry point
+│   ├── vite.config.js             # Vite config with API proxy
+│   ├── package.json               # Frontend dependencies
+│   └── src/
+│       ├── main.jsx               # React entry point
+│       ├── App.jsx                # Router + ProtectedRoute
+│       ├── App.css                # Full dark theme design system
+│       ├── context/
+│       │   └── AuthContext.jsx     # Auth state + JWT management
+│       ├── services/
+│       │   └── api.js             # Axios instance with JWT interceptor
+│       ├── components/
+│       │   └── Sidebar.jsx        # Role-based navigation sidebar
+│       └── pages/
+│           ├── AuthPage.jsx       # Login / Register page
+│           ├── Dashboard.jsx      # Role-aware dashboard
+│           ├── VehiclesPage.jsx   # Vehicle registry table + modal
+│           ├── TripsPage.jsx      # Trip dispatcher + progress tracking
+│           ├── MaintenancePage.jsx # Service logs management
+│           ├── ExpensesPage.jsx   # Expense & fuel logging
+│           ├── DriversPage.jsx    # Driver profiles + safety scores
+│           └── AnalyticsPage.jsx  # Charts + monthly P&L table
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## 📜 Business Rules
+## 🔌 API Endpoints
 
-| Rule | Description |
-|---|---|
-| **Weight Validation** | Cannot dispatch a trip if cargo exceeds vehicle's max capacity |
-| **In Shop Rule** | Creating a maintenance log auto-sets vehicle status to "In Shop" |
-| **Safety Lock** | Drivers with expired licenses cannot be assigned to new trips |
-| **Status Flow** | Trips follow: Dispatched → In Transit → Delivered → Completed |
-| **Auto-Ready** | Completing a maintenance log restores vehicle to "Ready" |
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| POST | `/api/auth/register` | Public | Register new user |
+| POST | `/api/auth/login` | Public | Login, returns JWT |
+| GET | `/api/auth/me` | Authenticated | Get current user info |
+| GET | `/api/vehicles` | Authenticated | List all vehicles |
+| POST | `/api/vehicles` | Admin | Create vehicle |
+| PUT | `/api/vehicles/:id` | Admin | Update vehicle |
+| DELETE | `/api/vehicles/:id` | Admin | Delete vehicle |
+| GET | `/api/trips` | Authenticated | List trips (role-filtered) |
+| POST | `/api/trips` | Admin, Dispatcher | Dispatch new trip |
+| PUT | `/api/trips/:id/advance` | Admin, Dispatcher | Advance trip status |
+| GET | `/api/maintenance` | Admin, Dispatcher | List maintenance logs |
+| POST | `/api/maintenance` | Admin, Dispatcher | Create log (auto In-Shop) |
+| PUT | `/api/maintenance/:id/done` | Admin, Dispatcher | Mark complete |
+| GET | `/api/expenses` | Authenticated | List expenses (role-filtered) |
+| GET | `/api/drivers` | Authenticated | List drivers (role-filtered) |
+| GET | `/api/analytics` | Admin, Dispatcher | Aggregated analytics data |
+
+---
+
+## 🔒 Security
+
+- Passwords are **never stored in plain text** — hashed with `bcrypt` (salt rounds: 10)
+- All API routes are protected with **JWT middleware**
+- Role-based authorization prevents unauthorized access at both **UI and API** level
+- Auto-logout on expired or invalid tokens
+
+---
+
+## 🎨 Design
+
+- **Dark theme** with vibrant accent colors (purple, blue, green, red, yellow)
+- **Glassmorphism** effects on cards and modals
+- **Smooth animations** — page transitions, hover effects, KPI card lifts
+- **Responsive** layout for different screen sizes
+- **Inter font** from Google Fonts for premium typography
 
 ---
 
 ## 👥 Team
 
-Built for the **Odoo Hackathon** 🏆
+| Name | Role |
+|---|---|
+| Yash Patil | Team Lead & Full-Stack Developer |
+| Sneha Kulkarni | Frontend Developer |
+| Rohit Deshmukh | Backend Developer |
 
 ---
 
 ## 📄 License
 
-MIT License
+This project was built for the **Odoo Hackathon 2026** 🏆
+
+---
+
+*Built with ❤️ using React, Node.js, Express & SQLite*

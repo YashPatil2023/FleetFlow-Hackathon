@@ -9,6 +9,14 @@ desktop.ini
 *.swp
 *.swo
 
+# Dependencies
+node_modules/
+
+# Database
+server/db/fleetflow.db
+
+# Build
+client/dist/
+
 # Misc
 *.log
-node_modules/
