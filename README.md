@@ -1,6 +1,6 @@
 # 🚛 FleetFlow - Modular Fleet & Logistics Management System
 
-> A full-stack fleet and logistics management system built with **React**, **Node.js**, **Express**, and **SQLite**. Designed for real-time fleet tracking, trip dispatching, maintenance logging, and operational analytics — all with role-based access control.
+> A full-stack fleet and logistics management system built with **React**, **Node.js**, **Express**, and **SQLite**. Designed for real-time fleet tracking, trip dispatching, maintenance logging, and operational analytics - all with role-based access control.
 
 ---
 
