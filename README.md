@@ -1,4 +1,4 @@
-# 🚛 FleetFlow — Modular Fleet & Logistics Management System
+# 🚛 FleetFlow - Modular Fleet & Logistics Management System
 
 > A full-stack fleet and logistics management system built with **React**, **Node.js**, **Express**, and **SQLite**. Designed for real-time fleet tracking, trip dispatching, maintenance logging, and operational analytics — all with role-based access control.
 
@@ -29,7 +29,7 @@
 ### 🔐 Authentication & Authorization
 - User **Registration** and **Login** with bcrypt-hashed passwords
 - **JWT token-based** session management (24h expiry)
-- **Role-based access control** — Admin, Dispatcher, Driver
+- **Role-based access control** - Admin, Dispatcher, Driver
 - Auto-logout on token expiry
 
 ### 📊 Role-Based Dashboards
@@ -45,28 +45,28 @@
 | Analytics & Reports | ✅ Full access | ✅ Full access | ❌ Hidden |
 
 ### 🚗 Core Modules
-1. **Dashboard** — KPI cards (Active Fleet, Maintenance Alerts, Pending Cargo, Utilization Rate) + Recent Trips table
-2. **Vehicle Registry** — Add, edit, delete vehicles with license plate, capacity, odometer tracking
-3. **Trip Dispatcher** — Dispatch trips with weight validation, 4-stage progress tracking (Dispatched → In Transit → Delivered → Completed)
-4. **Maintenance & Service Logs** — Log repairs with auto "In Shop" vehicle status
-5. **Expense & Fuel Logging** — Track fuel costs, misc expenses per trip
-6. **Driver Performance & Safety** — Safety scores, completion rates, license expiry warnings
-7. **Operational Analytics** — 4 interactive charts (Line, Bar, Doughnut, Radar) + Monthly P&L summary
+1. **Dashboard** - KPI cards (Active Fleet, Maintenance Alerts, Pending Cargo, Utilization Rate) + Recent Trips table
+2. **Vehicle Registry** - Add, edit, delete vehicles with license plate, capacity, odometer tracking
+3. **Trip Dispatcher** - Dispatch trips with weight validation, 4-stage progress tracking (Dispatched → In Transit → Delivered → Completed)
+4. **Maintenance & Service Logs** - Log repairs with auto "In Shop" vehicle status
+5. **Expense & Fuel Logging** - Track fuel costs, misc expenses per trip
+6. **Driver Performance & Safety** - Safety scores, completion rates, license expiry warnings
+7. **Operational Analytics** - 4 interactive charts (Line, Bar, Doughnut, Radar) + Monthly P&L summary
 
 ### 📜 Business Rules (Server-Enforced)
-- **Weight Validation** — API blocks trips where cargo weight exceeds vehicle capacity
-- **In Shop Rule** — Creating a maintenance log automatically sets vehicle status to "In Shop"
-- **Auto-Ready** — Marking maintenance as done restores vehicle to "Ready" (if no other active repairs)
-- **Safety Lock** — Drivers with expired licenses cannot be assigned to new trips
-- **Suspension Block** — Suspended drivers are blocked from trip assignment
+- **Weight Validation** - API blocks trips where cargo weight exceeds vehicle capacity
+- **In Shop Rule** - Creating a maintenance log automatically sets vehicle status to "In Shop"
+- **Auto-Ready** - Marking maintenance as done restores vehicle to "Ready" (if no other active repairs)
+- **Safety Lock** - Drivers with expired licenses cannot be assigned to new trips
+- **Suspension Block** - Suspended drivers are blocked from trip assignment
 
 ---
 
 ## 🚀 How to Run This Project
 
 ### Prerequisites
-- **Node.js** (v18 or higher) — [Download here](https://nodejs.org/)
-- **Git** — [Download here](https://git-scm.com/)
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **Git** - [Download here](https://git-scm.com/)
 
 ### Step-by-Step Setup
 
@@ -196,7 +196,7 @@ FleetFlow/
 
 - **Dark theme** with vibrant accent colors (purple, blue, green, red, yellow)
 - **Glassmorphism** effects on cards and modals
-- **Smooth animations** — page transitions, hover effects, KPI card lifts
+- **Smooth animations** - page transitions, hover effects, KPI card lifts
 - **Responsive** layout for different screen sizes
 - **Inter font** from Google Fonts for premium typography
 
