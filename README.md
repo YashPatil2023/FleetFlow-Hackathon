@@ -207,8 +207,8 @@ FleetFlow/
 | Name | Role |
 |---|---|
 | Yash Patil | Team Lead & Full-Stack Developer |
-| Sneha Kulkarni | Frontend Developer |
-| Rohit Deshmukh | Backend Developer |
+| Kamlesh Patil | Frontend Developer |
+| Jayesh Parmar | Backend Developer |
 
 ---
 
