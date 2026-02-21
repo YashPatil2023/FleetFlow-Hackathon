@@ -8,6 +8,8 @@ A comprehensive fleet management dashboard built for the Odoo Hackathon. Track v
 
 ## ✨ Features
 
+*Note: Verified on branch `feature/hackathon-updates`.*
+
 ### 1. 🔐 Authentication
 - User login and registration
 - Role-based access (Admin, Dispatcher, Driver)
