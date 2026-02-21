@@ -8,6 +8,16 @@
 
 🎬 **YouTube Demo:** https://youtu.be/M-WZhvKa8zs?si=IfaD67-HE-01rLD7
 
+## 🚀 FleetFlow Demo Video
+
+<p align="center">
+  <a href="https://youtu.be/M-WZhvKa8zs">
+    <img src="https://img.youtube.com/vi/M-WZhvKa8zs/0.jpg" width="700">
+  </a>
+</p>
+
+🔗 Click the image above to watch the full demo.
+
 ---
 
 ## 🛠️ Tech Stack
