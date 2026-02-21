@@ -22,7 +22,7 @@
 | **HTTP Client** | Axios | API communication with JWT interceptors |
 | **Routing** | React Router v6 | Client-side navigation with protected routes |
 
----
+-----
 
 ## ✨ Features
 
